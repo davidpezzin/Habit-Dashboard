@@ -1,0 +1,68 @@
+:root {
+  color-scheme: light;
+  --background: #f6f6f2;
+  --surface: #ffffff;
+  --ink: #19221e;
+  --muted: #69736d;
+  --border: #dde3de;
+  --accent: #0c7551;
+  --accent-soft: #daf3e7;
+  --shadow: 0 18px 60px rgb(16 32 23 / 8%);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #121916;
+  --surface: #1c2721;
+  --ink: #edf6ef;
+  --muted: #aebbb3;
+  --border: #34433a;
+  --accent: #70d3a5;
+  --accent-soft: #213f31;
+  --shadow: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; color: var(--ink); background: var(--background); }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.app-shell { width: min(780px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
+.hero, .section-heading, .habit-item, .dialog-actions { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.hero { align-items: flex-start; margin-bottom: 32px; }
+.eyebrow { margin: 0 0 8px; font-size: .74rem; letter-spacing: .12em; font-weight: 700; color: var(--accent); }
+h1, h2, p { margin-top: 0; }
+h1 { max-width: 580px; margin-bottom: 8px; font-size: clamp(2rem, 6vw, 3.8rem); line-height: 1.02; letter-spacing: -.05em; }
+h2 { margin-bottom: 0; font-size: 1.35rem; }
+.muted { color: var(--muted); }
+.icon-button, .habit-checkbox, .dialog-actions button { border: 1px solid var(--border); color: var(--ink); background: var(--surface); border-radius: 10px; }
+.icon-button { width: 42px; height: 42px; font-size: 1.25rem; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+.stats article, .panel { background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); border-radius: 16px; }
+.stats article { padding: 20px; }
+.stats span { display: block; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 750; letter-spacing: -.04em; }
+.stats p { margin: 5px 0 0; color: var(--muted); font-size: .86rem; }
+.panel { padding: 24px; }
+.primary-button { border: 0; border-radius: 9px; padding: 10px 14px; background: var(--accent); color: #fff; font-weight: 700; }
+:root[data-theme="dark"] .primary-button { color: #062716; }
+.progress-track { height: 8px; overflow: hidden; margin: 24px 0 10px; border-radius: 999px; background: var(--accent-soft); }
+.progress-track span { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--accent); transition: width 180ms ease; }
+.habit-list { margin: 0; padding: 0; list-style: none; }
+.habit-item { padding: 17px 0; border-bottom: 1px solid var(--border); }
+.habit-item:last-child { border-bottom: 0; }
+.habit-copy { flex: 1; }
+.habit-name { margin: 0 0 3px; font-weight: 700; }
+.habit-meta { margin: 0; color: var(--muted); font-size: .85rem; }
+.habit-checkbox { width: 30px; height: 30px; appearance: none; }
+.habit-checkbox:checked { background: var(--accent); border-color: var(--accent); }
+.habit-checkbox:checked::after { content: "✓"; display: block; color: white; text-align: center; line-height: 27px; font-weight: 900; }
+.habit-item.done .habit-name { color: var(--muted); text-decoration: line-through; }
+dialog { width: min(420px, calc(100% - 32px)); border: 0; border-radius: 16px; color: var(--ink); background: var(--surface); box-shadow: var(--shadow); }
+dialog::backdrop { background: rgb(0 0 0 / 45%); }
+dialog form { display: grid; gap: 12px; padding: 10px; }
+dialog input { padding: 11px; border: 1px solid var(--border); border-radius: 8px; color: var(--ink); background: var(--background); }
+.dialog-actions { margin-top: 8px; justify-content: flex-end; }
+.dialog-actions button { padding: 9px 12px; }
+.dialog-actions .primary-button { border: 0; }
+.sr-only { position: absolute; overflow: hidden; width: 1px; height: 1px; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+@media (max-width: 520px) { .app-shell { padding-top: 32px; } .stats article, .panel { padding: 16px; } .section-heading { align-items: flex-start; flex-direction: column; gap: 12px; } }
